@@ -4,7 +4,7 @@ on:
 
 name: github-script
 
-concurrency: 
+concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
 
@@ -18,3 +18,10 @@ jobs:
 
       - name: checkout the code.
         uses: actions/checkout@v2
+
+      - name: import & run a local script.
+        uses: actions/github-script@v6
+        with:
+          script: |-
+            const { default: printStuff } = await import('${{ github.workspace }}/.github/scripts/example.mjs')
+            await printStuff()
