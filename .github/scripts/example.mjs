@@ -1,6 +1,6 @@
-import { exec } from '@actions/exec';
 
 export async function exampleExec() {
+  const exec = require('@actions/exec');
   let myOutput = '';
   let myError = '';
 
