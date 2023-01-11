@@ -23,7 +23,11 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |-
-            const env = { exec, core, context, io, glob }
+            // this is the default context, provided by the github-script action.
+            const ctx = { exec, core, context, io, glob, github, require, process }
+            // this is the example script, which is a local file.
             const lib = await import('${{ github.workspace }}/.github/scripts/example.mjs')
+            // we can now call the functions in the example script (async works!).
             lib.printStuff()
-            await lib.exampleExec(env)
+            await lib.exampleExec(ctx)
+            await lib.exampleGraphQL(ctx)
