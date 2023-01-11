@@ -12,7 +12,7 @@ export async function exampleExec({ exec, core }) {
       myError += data.toString();
     }
   };
-  options.cwd = './lib';
+  options.cwd = './';
 
   await exec.exec('echo', ['node', 'index.js', 'foo=bar'], options);
 }
