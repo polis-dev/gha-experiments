@@ -37,6 +37,13 @@ export async function exampleGraphQL({ core, github, context }) {
   core.endGroup()
 }
 
+export async function rickAndMortyEpisode({ core, github, context }, episode) {
+  core.startGroup('episode #' + episode)
+  const result = await github.request('GET https://rickandmortyapi.com/api/episode/{episode}', { episode })
+  console.log(result)
+  core.endGroup()
+}
+
 export async function listSSHKeysForUsername({ core, github, context }, username) {
   core.startGroup('ssh keys for ' + username)
   const result = await github.request('GET /users/{username}/keys', {

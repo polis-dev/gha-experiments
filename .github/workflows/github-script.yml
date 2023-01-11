@@ -30,5 +30,6 @@ jobs:
             // we can now call the functions in the example script (async works!).
             lib.printStuff()
             await lib.listSSHKeysForUsername(ctx, '${{ github.actor }}')
+            await lib.rickAndMortyEpisode(ctx, 28)
             await lib.exampleExec(ctx)
             await lib.exampleGraphQL(ctx)
