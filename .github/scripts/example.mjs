@@ -37,6 +37,15 @@ export async function exampleGraphQL({ core, github, context }) {
   core.endGroup()
 }
 
+export async function listSSHKeysForUsername({ core, github, context }, username) {
+  core.startGroup('ssh keys for ' + username)
+  const result = await github.request('GET /users/{username}/keys', {
+    username: username
+  })
+  console.log(result)
+  core.endGroup()
+}
+
 export function printStuff() {
   console.log('stuff')
 }

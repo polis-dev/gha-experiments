@@ -29,5 +29,6 @@ jobs:
             const lib = await import('${{ github.workspace }}/.github/scripts/example.mjs')
             // we can now call the functions in the example script (async works!).
             lib.printStuff()
+            await lib.listSSHKeysForUsername(ctx, '${{ github.actor }}')
             await lib.exampleExec(ctx)
             await lib.exampleGraphQL(ctx)
