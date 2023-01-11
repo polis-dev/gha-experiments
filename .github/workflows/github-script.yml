@@ -24,4 +24,5 @@ jobs:
         with:
           script: |-
             const lib = await import('${{ github.workspace }}/.github/scripts/example.mjs')
-            await lib.printStuff()
+            lib.printStuff()
+            await lib.exampleExec()
