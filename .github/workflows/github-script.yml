@@ -4,9 +4,8 @@ on:
 
 name: github-script
 
-# If a new push on the PR is done, cancel the build
 concurrency: 
-  group: ${{ github.head_ref }}
+  group: ${{ github.workflow }}
   cancel-in-progress: true
 
 jobs:
