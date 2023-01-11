@@ -1,0 +1,20 @@
+on:
+  push: {branches: [main]}
+  workflow_dispatch:
+
+name: github-script
+
+# If a new push on the PR is done, cancel the build
+concurrency: 
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  rustfmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: View context attributes
+        uses: actions/github-script@v6
+        with:
+          script: console.log(context)
