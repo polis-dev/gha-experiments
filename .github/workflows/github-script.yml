@@ -23,5 +23,5 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |-
-            const { default: printStuff } = await import('${{ github.workspace }}/.github/scripts/example.mjs')
-            await printStuff()
+            const lib = await import('${{ github.workspace }}/.github/scripts/example.mjs')
+            await lib.printStuff()
