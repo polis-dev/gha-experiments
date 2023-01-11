@@ -9,11 +9,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  rustfmt:
+  simple:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: View context attributes
+      - name: print contents of github.context for debugging.
         uses: actions/github-script@v6
-        with:
-          script: console.log(context)
+        with: { script: 'console.log(context)' }
+
+      - name: checkout the code.
+        uses: actions/checkout@v2
