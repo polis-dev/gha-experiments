@@ -18,6 +18,8 @@ export async function exampleExec() {
   await exec.exec('echo', ['node', 'index.js', 'foo=bar'], options);
 }
 
-export default function printStuff() {
+export function printStuff() {
   console.log('stuff')
 }
+
+export default printStuff
