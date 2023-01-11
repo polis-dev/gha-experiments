@@ -23,6 +23,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |-
+            const env = { exec, core, context, io, glob }
             const lib = await import('${{ github.workspace }}/.github/scripts/example.mjs')
             lib.printStuff()
-            await lib.exampleExec({exec, core})
+            await lib.exampleExec(env)

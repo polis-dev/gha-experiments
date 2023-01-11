@@ -1,5 +1,5 @@
 
-export async function exampleExec({ exec, core }) {
+export async function exampleExec({ exec }) {
   let myOutput = '';
   let myError = '';
 
