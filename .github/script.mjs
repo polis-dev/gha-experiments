@@ -14,7 +14,7 @@ jobs:
             const ctx = { exec, core, context, io, glob, github, require, process }
             // this is the example script, which is a local file.
             const lib = await import('${{ github.workspace }}/.github/script.mjs')
-            // we can now call the functions in the example script (too works too!).
+            // we can now call the functions in the example script (await works too!).
             console.print(await lib.rickAndMortyEpisode(ctx, 28))
 ---
  */
