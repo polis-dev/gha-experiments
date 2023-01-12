@@ -74,12 +74,12 @@ export async function exampleGraphQL({ core, github, context }) {
 /**
  * Example function that makes an external request to a arbitrary API.
  *
+ 
  * @param {*} ctx context object, provided by the github-script action at
  *            runtime.
  */
-export async function rickAndMortyEpisode({ core, github, context }, episode) {
-  core.startGroup('episode #' + episode)
-  const result = await github.request('GET https://rickandmortyapi.com/api/episode/{episode}', { episode })
+export async function externalAPI({ core, github, context }) {
+  const result = await github.request('GET https://debug.polis.dev/')
   console.log(result)
   core.endGroup()
 }
