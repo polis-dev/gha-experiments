@@ -72,19 +72,6 @@ export async function exampleGraphQL({ core, github, context }) {
 }
 
 /**
- * Example function that makes an external request to a arbitrary API.
- *
- 
- * @param {*} ctx context object, provided by the github-script action at
- *            runtime.
- */
-export async function externalAPI({ core, github, context }) {
-  const result = await github.request('GET https://debug.polis.dev/')
-  console.log(result)
-  core.endGroup()
-}
-
-/**
  * Example function that returns a user's ssh keys via the API.
  *
  * @param {*} ctx context object, provided by the github-script action at
