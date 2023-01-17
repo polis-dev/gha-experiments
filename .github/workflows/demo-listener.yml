@@ -1,0 +1,27 @@
+name: listener
+on:
+  workflow_run:
+    workflows: [demo]
+    types: [completed]
+
+jobs:
+  main:
+    name: "${{ github.workflow }}"
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+      - uses: actions/github-script@v6
+        with:
+          script: |-
+            // this is the default context, provided by the github-script action.
+            const ctx = { exec, core, context, io, glob, github, require, process }
+            // this is the example script, which is a local file.
+            const lib = await import('${{ github.workspace }}/.github/script.mjs')
+            // we can now call the functions in the example script (too works too!).
+            ${{ inputs.script || 'lib.doDemo(ctx)' }}
+
+      - name: always print context (for debugging).
+        uses: actions/github-script@v6
+        if: always()
+        with: { script: 'console.log(context)' }
