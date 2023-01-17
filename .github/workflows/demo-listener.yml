@@ -24,4 +24,4 @@ jobs:
       - name: always print context (for debugging).
         uses: actions/github-script@v6
         if: always()
-        with: { script: 'console.log(JSON.stringify(context, null, 2))' }
+        with: { script: 'console.log(JSON.stringify(context.payload.workflow_run, null, 2))' }
